@@ -79,7 +79,7 @@ ax.plot(lags,sp[1:],color=BLUE,lw=2,zorder=2)
 ax.scatter([1],[p1],color=ACCENT,s=70,zorder=3,edgecolor="white",linewidth=1)
 ax.annotate(f"at 1 s: {p1:.3f}\n(= predict-previous ceiling)",xy=(1,p1),xytext=(95,0.90),
             fontsize=9.5,arrowprops=dict(arrowstyle="->",color="#333"))
-ax.text(13,0.965,"25-s\nwindow",fontsize=8,color="#9a6b00",ha="center",va="top")
+ax.text(13,0.62,"25-s\nwindow",fontsize=8.5,color="#9a6b00",ha="center",va="center")
 ax.set_xlabel("Time lag (s)"); ax.set_ylabel("P(same behaviour after lag)")
 ax.set_xlim(0,maxlag); ax.set_ylim(0.5,1.0)
 ax.grid(color="#ececec",lw=0.8); ax.set_axisbelow(True)
@@ -123,10 +123,10 @@ for m in archs:
     ys=[abl[(abl.architecture==m)&(abl.input_set==s)]["acc_mean"].iloc[0] for s in order]
     ax.plot(x,ys,marker="o",ms=6,lw=1.8,color=BLUE,alpha=0.7)
 ax.axhline(pp,color=ACCENT,ls="--",lw=1.6)
-ax.text(2.02,pp,f" predict-previous\n ceiling ({pp:.3f})",va="center",fontsize=9.5,color="#9a6b00")
-ax.text(0.02,0.795,"6 neural\narchitectures",fontsize=9,color=BLUE)
+ax.text(2.5,pp-0.006,f"predict-previous\nceiling ({pp:.3f})",va="top",ha="right",fontsize=9.5,color="#9a6b00")
+ax.text(1.4,0.82,"each line: one of\n6 neural architectures",fontsize=9.5,color=BLUE,ha="left")
 ax.set_xticks(x); ax.set_xticklabels(xlab,fontsize=10.5)
-ax.set_ylabel("Cross-animal (LOAO) accuracy, 18 animals"); ax.set_ylim(0.74,1.005); ax.set_xlim(-0.2,2.6)
+ax.set_ylabel("Cross-animal (LOAO) accuracy"); ax.set_ylim(0.74,1.005); ax.set_xlim(-0.2,2.75)
 ax.grid(axis="y",color="#e9e9e9",lw=0.8); ax.set_axisbelow(True)
 save(fig,"fig_input")
 
