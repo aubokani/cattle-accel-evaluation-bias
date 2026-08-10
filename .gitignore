@@ -97,3 +97,18 @@ manuscript/**/*.fdb_latexmk
 manuscript/**/*-eps-converted-to.pdf
 docs/github_support_*.md
 scripts/post_process.sh
+
+# ── Not part of the published paper's reproducible release (kept on disk) ─────
+# Cooperative-positioning is a separate exploratory analysis, not in the paper.
+scripts/cooperative_positioning.py
+scripts/make_reframe_figures.py
+Results/cooperative_positioning_per_animal.csv
+Results/cooperative_positioning_summary.csv
+Results/cooperative_positioning_sweep.csv
+Results/figures/fig_cooperative_sweep.*
+# Superseded intermediate figures (replaced by fig1/fig2/fig3)
+Results/figures/fig_input_ablation.*
+Results/figures/fig_leakage_ladder.*
+# Human-readable working dumps (the CSVs alongside them are the tracked artefacts)
+Results/paper_tables.md
+Results/revision/SUMMARY.md

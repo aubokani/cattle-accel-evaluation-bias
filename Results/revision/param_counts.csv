@@ -1,0 +1,8 @@
+architecture,trainable_params,params_k
+STA-LSTM-H,189765,189.8
+STA-LSTM,189765,189.8
+LSTM,117989,118.0
+GRU,88613,88.6
+Transformer,300293,300.3
+1D-CNN,40069,40.1
+XGBoost,300 trees × depth 6,—

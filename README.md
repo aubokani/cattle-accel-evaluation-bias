@@ -1,6 +1,6 @@
-# Cross-Animal Evaluation of Cattle Behaviour Classification from Collar Accelerometry
+# Evaluation Bias in Cattle Behaviour Classification from Collar Accelerometry
 
-### A Protocol-and-Input Decomposition
+### A Protocol-and-Input Decomposition on a Public Cohort
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 [![PyTorch 2.0+](https://img.shields.io/badge/pytorch-2.0%2B-orange)](https://pytorch.org/)
@@ -9,9 +9,8 @@
 
 Reproducibility code for the paper:
 
-> **Bokani, A.** *Cross-Animal Evaluation of Cattle Behaviour Classification from
-> Collar Accelerometry: A Protocol-and-Input Decomposition.*
-> Submitted to *Smart Agricultural Technology* (Elsevier), 2026.
+> **Bokani, A.** *Evaluation bias in cattle behaviour classification from collar
+> accelerometry: a protocol-and-input decomposition on a public cohort.* 2026.
 
 ---
 
@@ -29,19 +28,21 @@ genuine architectural gains from two confounding effects:
 1. the strong second-to-second **autocorrelation** of behaviour, and
 2. **leakage from privileged inputs** (a behaviour-derived channel).
 
-It is **not** a "our model wins" package. The headline finding is that apparent
-accuracy collapses once the evaluation is made honest:
+It is **not** a "our model wins" package. Measured on one common cohort, holding
+everything else fixed, the two evaluation choices dwarf the architecture:
 
-| Evaluation protocol | Input | Best neural accuracy | Takeaway |
-|---|---|---|---|
-| Within-animal 5-fold CV | accel + behaviour channel | **~0.96** | Standard but optimistic |
-| **Cross-animal (leave-one-animal-out)** | **accel only** | **~0.77** | All 6 models converge; none clearly wins |
-| Trivial "repeat last second's label" | — | **~0.99** | Beats *every* trained model |
+| What changes (everything else held fixed) | Effect on reported accuracy |
+|---|---|
+| Shuffling overlapping windows (leaky CV) vs. a leakage-free split | **+4.6 pp** inflation (clean, one-variable contrast) |
+| Adding a behaviour-history input channel | jumps to **~0.99** — no better than a trivial "repeat the last label" rule |
+| Swapping the architecture (7 models, leakage-free, accel-only) | **3.9 pp** total spread; no deep or attention model beats a plain gradient-boosted tree |
 
-The proposed **STA-LSTM-H** architecture is included as a *testbed*, not as a
-new accuracy record. Two limits on interpretation, stated plainly: the halter
-labels agree with visual observation only 88–95 % of the time, and all 18
-animals come from a **single deployment**, so leave-one-animal-out measures
+So the deployment-honest, leakage-free, accelerometer-only, cross-animal accuracy
+is **~0.76–0.80**, not the 95 %+ routinely reported. The **STA-LSTM-H**
+architecture is included as a *testbed*, not as a new accuracy record. Two limits
+on interpretation, stated plainly: the halter labels agree with visual
+observation only 88–95 % of the time, and the 18 animals come from **one farm
+across three trials (2015–2016)**, so leave-one-animal-out measures
 generalisation *across animals* but not *across farms or hardware*.
 
 ---
@@ -108,8 +109,8 @@ Requires **Python 3.10+** (tested on 3.12). A GPU is optional — everything run
 on CPU, just slower.
 
 ```bash
-git clone https://github.com/aubokani/STA-LSTM-H.git
-cd STA-LSTM-H
+git clone https://github.com/aubokani/cattle-accel-evaluation-bias.git
+cd cattle-accel-evaluation-bias
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -173,13 +174,27 @@ python scripts/run_trivial_baselines.py --animal-ids $(seq 1 18) --folds 5
 python scripts/predict_prev_baseline.py          # → Results/predict_prev_cohort.csv
 ```
 
-### 5. Seed-stability audit and figures
+### 5. Seed-stability audit
 
 ```bash
 python scripts/run_seed_audit.py --animal-id 1 --seeds 0 1 2 3 4
 python scripts/consolidate_seed_audit.py         # → Results/aggregate_seed_audit_summary.csv
 python scripts/wilcoxon_effects.py               # significance + effect sizes
-python scripts/make_figures.py                   # → Results/figures/*.{png,eps}
+```
+
+### 6. Protocol-and-input decomposition, statistics, and paper figures
+
+These reproduce the exact numbers and the three figures in the paper:
+
+```bash
+# leakage ladder (protocols A–D on the same backbone; Slurm array on HPC)
+python scripts/leakage_experiment.py             # → Results/leakage_protocol_*.csv
+# headline input-ablation vs predict-previous ceiling tables
+python scripts/build_paper_tables.py             # → Results/paper_table1/2_*.csv
+# clean leakage contrasts, full 7-model pairwise Wilcoxon+TOST, param counts
+python scripts/revision_stats.py                 # → Results/revision/*.csv
+# regenerate the three paper figures
+python scripts/make_paper_figures.py             # → Results/figures/fig1..fig3.{png,eps}
 ```
 
 Pre-computed outputs for all of the above are committed under `Results/`

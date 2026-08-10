@@ -1,0 +1,5 @@
+contrast,note,delta_pp,ci95_pp,wilcoxon_p,r_rb,n_sign_reversals
+A-B,"shuffle only (both 5-fold, stride-1, full coverage) = CLEAN leakage",4.58,"[3.63, 5.53]",1e-05,1.0,0
+A-C,shuffle+estimator+temporal-shift (headline in v1),7.77,"[4.12, 11.42]",0.00019,0.906,3
+A-D,shuffle+temporal-shift+~25x less training data,9.28,"[5.60, 12.95]",1e-05,1.0,0
+B-C,estimator + temporal shift (no shuffle),3.19,"[-0.10, 6.47]",0.09874,0.45,7
