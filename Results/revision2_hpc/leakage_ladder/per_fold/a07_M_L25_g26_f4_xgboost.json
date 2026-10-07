@@ -1,0 +1,47 @@
+{
+ "animal": 7,
+ "protocol": "M_L25_g26",
+ "fold": 4,
+ "n_windows": 86375,
+ "n_train": 43800,
+ "n_test": 17275,
+ "stride": 1,
+ "host": "hpc05-n05",
+ "job": "187682_194",
+ "torch": "2.5.1+cu124",
+ "xgboost": "3.2.0",
+ "sklearn": "1.8.0",
+ "cuda": false,
+ "threads": 7,
+ "model": "XGBoost",
+ "ce_weighting": "none",
+ "seed": 42,
+ "accuracy": 0.7389290882778582,
+ "f1_macro": 0.7143073544455208,
+ "balanced_accuracy": 0.7210861095004065,
+ "kappa": 0.5958256156903364,
+ "confusion": [
+  [
+   5230,
+   562,
+   1045
+  ],
+  [
+   824,
+   5417,
+   869
+  ],
+  [
+   959,
+   251,
+   2118
+  ]
+ ],
+ "recall_other": 0.764955389790844,
+ "precision_other": 0.7457578782261515,
+ "recall_rum": 0.7618846694796062,
+ "precision_rum": 0.8695024077046549,
+ "recall_eat": 0.6364182692307693,
+ "precision_eat": 0.5252976190476191,
+ "train_s": 23.07101812498877
+}

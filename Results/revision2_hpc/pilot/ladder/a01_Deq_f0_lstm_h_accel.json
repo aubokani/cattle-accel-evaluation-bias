@@ -1,0 +1,52 @@
+{
+ "animal": 1,
+ "protocol": "Deq",
+ "fold": 0,
+ "n_windows": 3455,
+ "n_train": 2764,
+ "n_test": 691,
+ "stride": 25,
+ "host": "hpc05-n03",
+ "job": "187655_12",
+ "torch": "2.5.1+cu124",
+ "xgboost": "3.2.0",
+ "sklearn": "1.8.0",
+ "cuda": false,
+ "threads": 8,
+ "model": "STA-LSTM-H (accel)",
+ "epochs": 1,
+ "batch_size": 64,
+ "objective": "multitask",
+ "ce_weighting": "weighted",
+ "seed": 42,
+ "accuracy": 0.7916063675832128,
+ "f1_macro": 0.7906941655753359,
+ "balanced_accuracy": 0.8009743243595903,
+ "kappa": 0.6895990217303145,
+ "confusion": [
+  [
+   197,
+   27,
+   41
+  ],
+  [
+   2,
+   185,
+   54
+  ],
+  [
+   7,
+   13,
+   165
+  ]
+ ],
+ "recall_other": 0.7433962264150943,
+ "precision_other": 0.9563106796116505,
+ "recall_rum": 0.7676348547717843,
+ "precision_rum": 0.8222222222222222,
+ "recall_eat": 0.8918918918918919,
+ "precision_eat": 0.6346153846153846,
+ "train_s": 1.1725202319794334,
+ "steps": 44,
+ "loss_trace": []
+}

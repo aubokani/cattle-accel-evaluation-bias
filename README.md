@@ -177,7 +177,7 @@ python scripts/predict_prev_baseline.py          # → Results/predict_prev_coho
 ### 5. Seed-stability audit
 
 ```bash
-python scripts/run_seed_audit.py --animal-id 1 --seeds 0 1 2 3 4
+python scripts/run_seed_audit.py --animal-id 1   # default seeds 7 42 101 1729 2026 (as reported)
 python scripts/consolidate_seed_audit.py         # → Results/aggregate_seed_audit_summary.csv
 python scripts/wilcoxon_effects.py               # significance + effect sizes
 ```
@@ -188,13 +188,37 @@ These reproduce the exact numbers and the three figures in the paper:
 
 ```bash
 # leakage ladder (protocols A–D on the same backbone; Slurm array on HPC)
-python scripts/leakage_experiment.py             # → Results/leakage_protocol_*.csv
+python scripts/leakage_experiment.py --all --epochs 5   # original low-budget ladder → Results/leakage_protocol_*.csv
 # headline input-ablation vs predict-previous ceiling tables
 python scripts/build_paper_tables.py             # → Results/paper_table1/2_*.csv
 # clean leakage contrasts, full 7-model pairwise Wilcoxon+TOST, param counts
 python scripts/revision_stats.py                 # → Results/revision/*.csv
 # regenerate the three paper figures
-python scripts/make_paper_figures.py             # → Results/figures/fig1..fig3.{png,eps}
+python scripts/make_paper_figures.py             # → Results/figures/fig_*.{png,eps}
+```
+
+### 7. Revision analyses (Scientific Reports review, 2026-10)
+
+Re-analysis of existing per-animal outputs (10-s label grid, metric dependence,
+daily time budgets, mixed model, TOST sensitivity, LOAO floors, smoothing):
+
+```bash
+python scripts/revision2_stats.py                # → Results/revision2/  (SUMMARY.md lists every number)
+```
+
+New training controls (stated 40-epoch recipe ladder + one-factor mechanism rungs,
+class-weighting / CE-only / seed / leave-one-trial-out LOAO controls, XGBoost controls).
+Each family is a Slurm task-file array:
+
+```bash
+mkdir -p Results/revision2_hpc/tasks logs
+python scripts/revision2_leakage_ladder.py --list-tasks core > Results/revision2_hpc/tasks/ladder_core.txt   # also: sweep, mech
+python scripts/revision2_loao_variant.py  --list-tasks weighting > Results/revision2_hpc/tasks/loao_weighting.txt   # also: seeds, loto
+python scripts/revision2_xgb.py           --list-tasks > Results/revision2_hpc/tasks/xgb.txt
+T=Results/revision2_hpc/tasks/ladder_core.txt
+sbatch --array=0-$(( $(wc -l < $T) - 1 )) --export=ALL,TASKFILE=$T scripts/submit_revision2_ladder.sh
+# likewise submit_revision2_loao.sh / submit_revision2_xgb.sh with their task files
+python scripts/revision2_hpc_analysis.py         # → Results/revision2_hpc/SUMMARY.md
 ```
 
 Pre-computed outputs for all of the above are committed under `Results/`

@@ -1,0 +1,2 @@
+family,metric,A,B,n,mean_A,mean_B,diff_pp,ci_lo_pp,ci_hi_pp,sd_diff_pp,p,p_method,r_rb,reversals,zeros,min_pp,max_pp
+pooled vs LOAO,accuracy,pooled shuffled CV (5/5 folds),LOAO,18,0.8252606058980145,0.7997961086991477,2.5464497198866716,-0.4365414371337334,5.529440876907076,5.998514649839057,7.62939453125e-06,exact,1.0,0,0,0.33814936459061196,26.44553105001326

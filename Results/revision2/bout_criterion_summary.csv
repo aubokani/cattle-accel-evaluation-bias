@@ -1,0 +1,10 @@
+behaviour,gap_criterion_s,n_bouts_per_day,n_bouts_per_day,n_bouts_per_day,median_bout_min,median_bout_min,median_bout_min
+,,median,min,max,median,min,max
+Eating,0,227.5,184,346,0.5,0.4,0.7
+Eating,60,122.0,95,204,1.0,0.7,1.8
+Eating,300,45.0,26,68,2.0,0.8,5.7
+Eating,600,27.0,21,38,5.9,2.0,22.0
+Ruminating,0,205.0,156,318,0.7,0.5,0.8
+Ruminating,60,121.0,92,150,1.0,0.8,1.8
+Ruminating,300,41.5,34,53,10.1,6.0,19.3
+Ruminating,600,23.5,17,29,30.9,13.3,42.8

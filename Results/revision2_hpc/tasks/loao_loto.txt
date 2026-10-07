@@ -1,0 +1,6 @@
+loto 1 cnn1d multitask weighted 1
+loto 1 cnn1d multitask none 1
+loto 2 cnn1d multitask weighted 1
+loto 2 cnn1d multitask none 1
+loto 3 cnn1d multitask weighted 1
+loto 3 cnn1d multitask none 1

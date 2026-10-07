@@ -1,0 +1,2 @@
+friedman_chi2,friedman_p,kendall_w,icc_animal,var_animal_pp2,var_resid_pp2,icc_animal_given_trial,var_animal_given_trial_pp2,var_resid_trial_model_pp2,lr_trial_chi2_df2,lr_trial_p,var_of_model_means_pp2,xgb_rank1_animals
+46.5,2.3538819372215892e-08,0.4305555555555556,0.923846420522816,74.21785971920717,6.117852007863627,0.8902864860033628,49.64394567388863,6.1178191673909135,9.388417766107978,0.0091481017241997,1.7367933931634572,12

@@ -1,0 +1,30 @@
+table,row,ms_acc,acc,ms_sd,sd,ms_f1,f1,acc_mismatch,sd_mismatch,f1_mismatch
+4 (tab:loao_convergence),XGBoost,0.7998,0.7997961086991477,0.0854,0.08538069987002414,0.7498,0.7498467903008967,False,False,False
+4 (tab:loao_convergence),1D-CNN,0.7828,0.7827895159993569,0.0885,0.08854264474189984,0.7431,0.74308420961695,False,False,False
+4 (tab:loao_convergence),Transformer,0.7728,0.7728355041003376,0.1022,0.10219287454067909,0.735,0.7350416857225737,False,False,False
+4 (tab:loao_convergence),STA-LSTM-H,0.7703,0.7703431419842419,0.081,0.08099435677300648,0.7367,0.7366718448507085,False,False,False
+4 (tab:loao_convergence),GRU,0.7675,0.7675214664737094,0.0931,0.09313940238282362,0.7309,0.7308647698244941,False,False,False
+4 (tab:loao_convergence),LSTM,0.7653,0.765283807686123,0.0884,0.0883591185988039,0.7267,0.726658058977725,False,False,False
+4 (tab:loao_convergence),STA-LSTM,0.7611,0.7610734844830359,0.0873,0.08730056244494104,0.7205,0.7204877096108266,False,False,False
+3 (tab:loao_ablation),STA-LSTM-H accel,0.7703,0.7703431419842419,,,,,False,False,False
+3 (tab:loao_ablation),STA-LSTM-H lag1,0.9865,0.9864820710725198,,,,,False,False,False
+3 (tab:loao_ablation),STA-LSTM-H bp,0.9927,0.9927493166103876,,,,,False,False,False
+3 (tab:loao_ablation),STA-LSTM accel,0.7611,0.7610734844830359,,,,,False,False,False
+3 (tab:loao_ablation),STA-LSTM lag1,0.9865,0.9864563434635794,,,,,False,False,False
+3 (tab:loao_ablation),STA-LSTM bp,0.9932,0.9932284933269013,,,,,False,False,False
+3 (tab:loao_ablation),LSTM accel,0.7653,0.765283807686123,,,,,False,False,False
+3 (tab:loao_ablation),LSTM lag1,0.9867,0.9867342016401349,,,,,False,False,False
+3 (tab:loao_ablation),LSTM bp,0.9933,0.99330889210484,,,,,False,False,False
+3 (tab:loao_ablation),GRU accel,0.7675,0.7675214664737094,,,,,False,False,False
+3 (tab:loao_ablation),GRU lag1,0.9868,0.9867978774722624,,,,,False,False,False
+3 (tab:loao_ablation),GRU bp,0.9934,0.9934034410676958,,,,,False,False,False
+3 (tab:loao_ablation),Transformer accel,0.7728,0.7728355041003376,,,,,False,False,False
+3 (tab:loao_ablation),Transformer lag1,0.9866,0.9866300048239266,,,,,False,False,False
+3 (tab:loao_ablation),Transformer bp,0.9929,0.9929210484000642,,,,,False,False,False
+3 (tab:loao_ablation),1D-CNN accel,0.7828,0.7827895159993569,,,,,False,False,False
+3 (tab:loao_ablation),1D-CNN lag1,0.9864,0.9863598649300529,,,,,False,False,False
+3 (tab:loao_ablation),1D-CNN bp,0.9931,0.9930844187168355,,,,,False,False,False
+1 (tab:leakage),A,0.8393,0.8392751246181058,0.0339,0.03388177029464983,0.8091,0.809096410538966,False,False,False
+1 (tab:leakage),B,0.7935,0.7934967036501044,0.0444,0.04444412629931173,0.7197,0.719675040196146,False,False,False
+1 (tab:leakage),C,0.7616,0.7616047596076541,0.0847,0.08473225177086072,0.7287,0.7287062371539487,False,False,False
+1 (tab:leakage),D,0.7465,0.746502653159672,0.0807,0.08069501245632803,0.7178,0.7178181241806412,False,False,False

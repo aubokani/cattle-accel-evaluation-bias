@@ -1,0 +1,22 @@
+animal,model,input,protocol,epochs,seeds,n_seeds,acc_mean,acc_sd,acc_range
+1,cnn1d,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9612758321273518,0.0013674697308945609,0.0031606367583213446
+1,gru,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9775490593342981,0.0011301012931940713,0.0029522431259043636
+1,lstm,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.973640520984081,0.0016092910907416047,0.0030217076700433942
+1,lstm_h,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9931091172214183,0.0005561021333406214,0.0014587554269176461
+1,sta_lstm,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9935235890014471,0.0001630321653308354,0.00041678726483362905
+1,transformer,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9332607814761215,0.0018308919184499047,0.004573082489146119
+1,xgboost,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.880432995658466,0.0005764696929298726,0.0015397973950795896
+9,cnn1d,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9035322720694646,0.0013673521041488014,0.0037510853835024394
+9,gru,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9500086830680173,0.0014386084916464584,0.0036353111432703145
+9,lstm,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9369377713458755,0.002298592506750494,0.005476121562952296
+9,lstm_h,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.991335455861071,0.0003918064399072123,0.0009609261939219627
+9,sta_lstm,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9910298118668598,0.00044759884467984653,0.0011230101302459605
+9,transformer,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.8807316931982634,0.006171849713460851,0.016891461649782835
+9,xgboost,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.7951675832127351,0.0007117338533343308,0.001829232995658403
+17,cnn1d,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9453846599131694,0.0017524526123582768,0.003971056439942222
+17,gru,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9706026049204052,0.001845671616047542,0.004665701881331197
+17,lstm,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9627322720694644,0.0019559508816909483,0.005429811866859424
+17,lstm_h,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9924237337192474,5.405553704163128e-05,0.00015050651230097412
+17,sta_lstm,accel+behavior_prev,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9920995658465991,0.0002956893134285001,0.0007525325615047596
+17,transformer,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.9114188133140377,0.003541938760153463,0.007826338639652763
+17,xgboost,accel only,within-animal 5-fold StratifiedKFold shuffle (protocol A),40,7 42 101 1729 2026,5,0.8585956584659915,0.0003584704023490761,0.000787264833574497
